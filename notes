@@ -1,0 +1,7 @@
+vehicleclass: suv, sedan, ect
+
+make: dodge, ford, chevy, nissan, honda, 
+
+model: model blongs to a make 
+
+user: username, first name, last name
