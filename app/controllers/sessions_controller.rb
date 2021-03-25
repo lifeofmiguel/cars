@@ -1,4 +1,4 @@
-class SessionsController < Sinatra::Base
+class SessionsController < ApplicationController
 
     get '/login' do
     end

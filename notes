@@ -5,3 +5,20 @@ make: dodge, ford, chevy, nissan, honda,
 model: model blongs to a make 
 
 user: username, first name, last name
+migration
+class CreateCars < ActiveRecord::Migration[6.1]
+  def change
+    create_table :cars do|t|
+      t.string :make
+      t.string :model
+    end
+  end
+end
+
+
+schema
+create_table "cars" force :cascade do |t|
+    t.string "name"
+    t.integer "year"
+    t.text "description"
+  end
