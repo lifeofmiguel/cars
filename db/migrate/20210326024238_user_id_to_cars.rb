@@ -1,4 +1,4 @@
-class UserIdToCars < ActiveRecord::Migration[6.1]
+class UserIdToCars < ActiveRecord::Migration[5.2]
   def change
     add_reference :cars, :user, foreign_key: true
   end

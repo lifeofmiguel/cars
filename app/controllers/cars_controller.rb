@@ -1,7 +1,8 @@
-class CarsController < ApplicationController
+class CarController < ApplicationController
+
     get '/cars' do
-        @cars = Cars.all
-        erb :'index'
+        @cars = Car.all
+        erb :'cars/index'
     end
 
     get '/cars/:id' do
