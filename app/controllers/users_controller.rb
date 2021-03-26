@@ -8,7 +8,7 @@ class UsersController < ApplicationController
         user = User.new(params["user"])
         if user.save
             session["user_id"] = user.id
-            redirect "/"
+            redirect "/cars"
         else
             redirect "signup"
         end

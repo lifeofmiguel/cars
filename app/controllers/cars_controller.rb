@@ -4,6 +4,10 @@ class CarsController < ApplicationController
         erb :'index'
     end
 
+    get '/cars/:id' do
+        @cars = Car.find_by(params[:id])
+        erb :'cars/show'
+    end
     #get '/c'
 
 end
