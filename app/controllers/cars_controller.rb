@@ -4,6 +4,6 @@ class CarsController < ApplicationController
         erb :'index'
     end
 
-    get '/c'
+    #get '/c'
 
 end
