@@ -10,12 +10,27 @@ class CarController < ApplicationController
     end
 
     get '/cars/:id' do
-        @cars = Car.find_by(params[:id])
+        @cars = Car.find_by_id(params[:id])
         erb :'cars/show'
     end
     
     
     post '/cars' do
+        car = Car.new(make: params["make"])
+
+        if car.save
+            redirect "cars/#{car.id}"
+        else
+            redirect "/cars/new"
+        end
+    end
+
+    get '/movies/:id/edit' do
+        @car = Car.find_by_id(params[:id])
+        erb :'car/edit'
+    end
+
+    patch '/movie/:id' do
     end
 
 end
