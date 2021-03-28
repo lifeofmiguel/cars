@@ -15,4 +15,15 @@ class ApplicationController < Sinatra::Base
         @car = Car.find_by(model: params["model"])
         erb :results
     end
+
+    helper do 
+        def current_user
+            @current_user ||=User.find_by_id(session["user_id"])
+        end
+    end
+
+    def logged_in?
+        !!current_user
+    end
+
 end
