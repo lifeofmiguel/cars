@@ -1,1 +1,6 @@
-<%= @car.model %>
+<%= @car.make %> 
+
+<form action="/cars/<%= @car.id %>" method= "POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Car">
+</form>

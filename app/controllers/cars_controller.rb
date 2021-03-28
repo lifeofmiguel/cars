@@ -25,12 +25,28 @@ class CarController < ApplicationController
         end
     end
 
-    get '/movies/:id/edit' do
+    get '/cars/:id/edit' do
         @car = Car.find_by_id(params[:id])
         erb :'car/edit'
     end
 
-    patch '/movie/:id' do
+    patch '/cars/:id' do
+        car = Car.find_by_id(params[:id])
+        car.title = params["make"]
+
+        if car.save
+            redirect "/cars#{car.id}"
+        else
+            redirect "/cars#{car.id}/edit"
+        end
     end
+
+    delete "/car/:id" do
+        Car.find_by_id(params[:id])
+        car.destroy
+        redirect "/cars"
+    end
+
+
 
 end
