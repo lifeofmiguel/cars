@@ -16,7 +16,7 @@ class CarController < ApplicationController
     
     
     post '/cars' do
-        car = Car.new(make: params["make"])
+        car = Car.new(params["make"])
 
         if car.save
             redirect "cars/#{car.id}"
@@ -25,16 +25,15 @@ class CarController < ApplicationController
         end
     end
 
-    get '/cars/:id/edit' do
+    get '/cars/:id' do
         @car = Car.find_by_id(params[:id])
-        erb :'car/edit'
+        erb :'cars/show'
     end
 
     patch '/cars/:id' do
         car = Car.find_by_id(params[:id])
-        car.title = params["make"]
 
-        if car.save
+        if car.update(params["car"])
             redirect "/cars#{car.id}"
         else
             redirect "/cars#{car.id}/edit"
