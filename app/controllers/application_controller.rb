@@ -26,4 +26,12 @@ class ApplicationController < Sinatra::Base
         !!current_user
     end
 
+    def redirect_if_not_logged_in
+        redirect "/login" if !logged_in?
+    end
+
+    def redirect_if_logged_in
+        redirect "/cars" if !logged_in?
+    end
+
 end
