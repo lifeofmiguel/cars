@@ -1,12 +1,10 @@
 class SessionsController < ApplicationController
 
     get '/login' do
-        redirect_if_logged_in
         erb :'sessions/new'
     end
 
     post '/login' do 
-        redirect_if_logged_in
         user = User.find_by(email: params["user"]["email"])
 
         if user && user.authenticate(params["user"]["password"])
@@ -18,7 +16,6 @@ class SessionsController < ApplicationController
     end
 
     delete '/logout' do
-        redirect_if_not_logged_in
         session.delete("user_id")
         redirect "/login"
     end

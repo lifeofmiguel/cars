@@ -1,8 +1,12 @@
+<h3> My Cars </h3>
+
 <ul>
 <% @cars.each do |m| %>
-    Make:<li><%= m.make %></li>
-    Model:<li><%= m.model %></li>
-    Year:<li><%= m.year %></li>
-    Desc:<li><%= m.desc %></li>
+    <li>
+        <a href="/cars/#{m.id}"
+            <%= m.make%>
+        </a>
+    </li>
+
 <% end %>
 </ul>
