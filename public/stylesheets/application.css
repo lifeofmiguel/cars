@@ -1,4 +1,8 @@
 .nav-bar{
     background-color: #cecece;
+}
 
+.page-bg{
+    background-image: url("../images/truck.jpg");
+    background-color: #fdfcfc;
 }
