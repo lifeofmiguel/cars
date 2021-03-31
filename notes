@@ -22,3 +22,8 @@ create_table "cars" force :cascade do |t|
     t.integer "year"
     t.text "description"
   end
+
+
+  nav bar color grey #cecece
+  red #ff1414
+  black #000000

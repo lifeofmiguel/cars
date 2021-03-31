@@ -9,7 +9,7 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/' do 
-        erb :search
+        erb :welcome
     end
 
     get '/search' do 
