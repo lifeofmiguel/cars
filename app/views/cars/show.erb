@@ -1,6 +1,23 @@
+<h2>
 <%= @car.make %> 
+</h2>
+<ul>
+    <li>
+        <%= @car.model %>
+    </li>
+    <li>
+        <%= @car.year %>
+    </li>
+    <li>
+        <%= @car.desc %>
+    </li>
+</ul>
+
+<a href="/cars/<%= @car.id %>/edit">Edit</a>
 
 <form action="/cars/<%= @car.id %>" method= "POST">
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" value="Delete Car">
 </form>
+
+

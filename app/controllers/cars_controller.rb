@@ -26,6 +26,7 @@ class CarController < ApplicationController
         if car.save
             redirect "/cars/#{car.id}"
         else
+            flash[:error] = "#{car.errors.full_messages.join(",")}"
             redirect "/cars/new"
         end
     end

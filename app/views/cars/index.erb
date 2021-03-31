@@ -3,8 +3,8 @@
 <ul>
 <% @cars.each do |m| %>
     <li>
-        <a href="/cars/#{m.id}"
-            <%= m.make%>
+        <a href="/cars/<%= m.id %>">
+            <%= m.make %>
         </a>
     </li>
 
