@@ -1,10 +1,10 @@
 
-<h1> EDIT CAR  </h1>
+<h2>Edit Car</h2>
+
 <form action="/cars/<%= @car.id %>" method="POST">
-    <input type="hidden" name="_method" value="PATCH">
-    <input type="text" name="car[make]" value="<%= @car.make%>"><br>
-    <input type="text" name="car[model]" value="<%= @car.model>"><br>
-    <input type="text" name="car[year]" value="<%= @car.year%>"><br>
-    <textarea name="car[desc]" value="<%= @car.desc%>"></textarea>
-    <input type="submit" value="Update Car"> 
+    <input type="text" name="car[make]" placeholder="make"><br>
+    <input type="text" name="car[model]" placeholder="model"><br>
+    <input type="text" name="car[year]" placeholder="year"><br>
+    <textarea name="car[desc]" placeholder="desc"></textarea>
+    <input type="submit" value="Update Car">
 </form>

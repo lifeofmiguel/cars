@@ -1,3 +1,6 @@
+User.create(email: "miguel@mail.com", password: "qwerty", firstname: "Miguel", lastname: "Morales")
+
+
 
 Car.create(make: "Dodge", model: "Challenger", year: 2021, desc: "The Dodge Challenger came out in 1969 when it was then discountinued in 1983 and came back out in 2008."
 )

@@ -4,5 +4,7 @@
 
 .page-bg{
     background-image: url("../images/truck.jpg");
+    background-size: cover;
     background-color: #fdfcfc;
+    background-repeat: no-repeat;
 }

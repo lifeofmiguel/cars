@@ -5,18 +5,18 @@ class SessionsController < ApplicationController
     end
 
     post '/login' do 
-        user = User.find_by(email: params["user"]["email"])
+        user = User.find_by(email: params[:email])
 
-        if user && user.authenticate(params["user"]["password"])
-            session["user_id"] = user.id
-            redirect "/movies"
+        if user && user.authenticate(params[:password])
+            session[:user_id] = user.id
+            redirect '/cars'
         else
-            redirect "/login"
+            redirect '/login'
         end
     end
 
     delete '/logout' do
         session.delete("user_id")
-        redirect "/login"
+        redirect '/login'
     end
 end

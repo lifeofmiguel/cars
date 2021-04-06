@@ -27,3 +27,106 @@ create_table "cars" force :cascade do |t|
   nav bar color grey #cecece
   red #ff1414
   black #000000
+
+
+  working site without navbar 
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%= yield %>
+</body>
+</html>
+
+
+broken code <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/stylesheets/application.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>Cars App</title>
+</head>
+<body class="page-bg">
+<!----------------------------START NAVBAR---------------------------------->
+    <nav class="navbar navbar-expand-lg navbar-light nav-bar">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <img src"/images/logo.png" width="50" height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <% if !logged_in? %>
+            <li class="nav-item">
+                <a class="nav-link active fs-3" aria-current="page" href="/cars">Cars</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active fs-3" href="/cars/new">Create new Car</a>
+            </li>
+            </li>
+            <% else %>
+            <li class="nav-item">
+                <a class="nav-link active fs-3" href="/signup">Signup</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active fs-3" href="/login">Login</a>
+            </li>
+            <% end %>
+            </ul>
+            <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+        </div>
+     </nav>
+     <!----------------------------END NAVBAR---------------------------------->
+     <!---------------------------START FLASH---------------------------------->
+        <div class"text-danger">
+       
+     <!----------------------------END FLASH----------------------------------->
+    <div class='container-sm bg-light'>
+        <div class="text-center"
+            <%= yield %>
+        </div>
+        <% if logged_in? %>
+            <br><br>
+            <form action="/logout" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <input type="submit" value="Logout">
+            </form>
+        <% end %>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%= yield %>
+</body>
+</html>
+
+
+
+new form
+<form action="/workouts/<%= @workout.id %>" method="post">

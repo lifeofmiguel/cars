@@ -1,30 +1,32 @@
 class CarController < ApplicationController
 
     get '/cars' do
-        redirect "/login" if :logged_in?
-        @cars = current_user.cars
+        
+        @cars = Car.all
+        #redirect "/login" if :logged_in?
+        
         erb :'cars/index'
     end
 
     get '/cars/new' do
-        redirect "/login" if :logged_in?
+        redirect "/login" if !logged_in?
         erb :'/cars/new'
     end
 
     get '/cars/:id' do
-        redirect "/login" if :logged_in?
+        
+        redirect "/login" if !logged_in?
         @car = Car.find_by_id(params[:id])
         erb :'cars/show'
     end
     
     
-    post '/cars' do
-        redirect "/login" if :logged_in?
+    post '/cars/new' do
+        redirect "/login" if !logged_in?
 
-        car = current_user.cars.build(params["car"])
-
+        car = Car.new( make: params[:car][:make], model: params[:car][:model], desc: params[:car][:desc])
         if car.save
-            redirect "/cars/#{car.id}"
+            redirect "/cars"
         else
             flash[:error] = "#{car.errors.full_messages.join(",")}"
             redirect "/cars/new"
@@ -32,13 +34,13 @@ class CarController < ApplicationController
     end
 
     get '/cars/:id/edit' do
-        redirect "/login" if :logged_in?
+        redirect "/login" if !logged_in?
         @car = Car.find_by_id(params[:id])
         erb :'cars/edit'
     end
 
     patch '/cars/:id' do
-        redirect "/login" if :logged_in?
+        redirect "/login" if !logged_in?
         @car = Car.find_by_id(params[:id])
 
         if @car.update(params["car"])
@@ -48,8 +50,8 @@ class CarController < ApplicationController
         end
     end
 
-    delete "/car/:id" do
-        redirect "/login" if :logged_in?
+    delete "/cars/:id" do
+        redirect "/login" if !logged_in?
         @car = Car.find_by_id(params[:id])
         @car.destroy
         redirect "/cars"
