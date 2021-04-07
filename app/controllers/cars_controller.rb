@@ -1,7 +1,7 @@
 class CarController < ApplicationController
 
     get '/cars' do
-        
+        redirect "/login" if !logged_in?
         @cars = Car.all
         #redirect "/login" if :logged_in?
         
@@ -21,7 +21,7 @@ class CarController < ApplicationController
     end
     
     
-    post '/cars/new' do
+    post '/cars' do
         redirect "/login" if !logged_in?
 
         car = Car.new( make: params[:car][:make], model: params[:car][:model], desc: params[:car][:desc])

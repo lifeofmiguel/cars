@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
     end
 
     delete '/logout' do
-        session.delete("user_id")
+        session.clear
         redirect '/login'
     end
 end

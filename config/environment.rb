@@ -1,5 +1,6 @@
 require 'bundler'
 require 'rack-flash'
+require 'dotenv/load'
 
 Bundler.require
 ActiveRecord::Base.establish_connection({
