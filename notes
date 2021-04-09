@@ -130,3 +130,18 @@ broken code <!DOCTYPE html>
 
 new form
 <form action="/workouts/<%= @workout.id %>" method="post">
+
+
+
+
+
+
+working cars/edit.erb
+
+<form action="/cars/<%= @car.id %>" method="POST">
+    <input type="text" name="car[make]" placeholder="make"><br>
+    <input type="text" name="car[model]" placeholder="model"><br>
+    <input type="text" name="car[year]" placeholder="year"><br>
+    <textarea name="car[desc]" placeholder="desc"></textarea>
+    <input type="submit" value="Update Car">
+</form>

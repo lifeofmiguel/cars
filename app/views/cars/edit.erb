@@ -2,9 +2,12 @@
 <h2>Edit Car</h2>
 
 <form action="/cars/<%= @car.id %>" method="POST">
-    <input type="text" name="car[make]" placeholder="make"><br>
-    <input type="text" name="car[model]" placeholder="model"><br>
-    <input type="text" name="car[year]" placeholder="year"><br>
-    <textarea name="car[desc]" placeholder="desc"></textarea>
+    <input type="hidden" name="_method" value="patch">
+  <ul>
+   <li> Make <input type="text" name="car[make]" value="<%= @car.make %>"><br> </li>
+   <li> Model <input type="text" name="car[model]" value="<%= @car.model %>"><br> </li>
+   <li> Year <input type="text" name="car[year]" value="<%= @car.year %>"><br> </li>
+   <li> Desc <textarea name="car[desc]" value="<%= @car.desc %>"></textarea> </li>
+  </ul>
     <input type="submit" value="Update Car">
 </form>
