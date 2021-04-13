@@ -1,12 +1,13 @@
 class SessionsController < ApplicationController
 
     get '/login' do
+        redirect_if_logged_in
         erb :'sessions/new'
     end
 
     post '/login' do 
+        redirect_if_logged_in
         user = User.find_by(email: params[:email])
-
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
             redirect '/cars'
@@ -16,7 +17,7 @@ class SessionsController < ApplicationController
     end
 
     delete '/logout' do
-        session.clear
+        session.delete("user_id")
         redirect '/login'
     end
 end

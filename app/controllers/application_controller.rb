@@ -5,16 +5,10 @@ class ApplicationController < Sinatra::Base
         set :views, 'app/views'
         enable :sessions
         set :session_secret, ENV["SESSION_SECRET"]
-        #use Rack::Flash, :sweep => true
     end
 
     get '/' do 
         redirect "/login"
-    end
-
-    get '/search' do 
-        @car = Car.find_by(model: params["model"])
-        erb :results
     end
 
     helpers do 
@@ -27,11 +21,11 @@ class ApplicationController < Sinatra::Base
         end
 
         def redirect_if_not_logged_in
-            redirect "/login" unless logged_in?
+            redirect "/login" if !logged_in?
         end
 
         def redirect_if_logged_in
-            redirect "/cars" if !logged_in?
+            redirect "/cars" if logged_in?
         end
     end
 
